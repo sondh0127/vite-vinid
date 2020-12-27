@@ -8,8 +8,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "experimentalDecorators": true,
-    "lib": ["dom", "esnext"]
+    "lib": ["dom", "esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["/src/*"],
+      "@components/": ["/src/components/*"],
+      "@views/": ["/src/views/*"],
+    }
   },
-  "include": ["**/*.{vue,ts}"],
+  "include": ["src/**/*.{vue,ts}"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import Vant from "vant";
 import "vant/lib/index.css";
 import { setup, warn, tw } from "twind";
 import * as colors from "twind/colors";
@@ -24,6 +25,8 @@ setup({
 });
 
 const app = createApp(App);
+
+app.use(Vant);
 
 app.directive("tw", function (el) {
   el.className = tw`${el.getAttribute("class")}`;

@@ -31,7 +31,10 @@ module.exports = {
   },
   plugins: [
     createMockServer({
-      // close support .ts file
+      ignore: /^_/,
+      mockPath: "mock",
+      watchFiles: true,
+      localEnabled: process.env.NODE_ENV === "development",
       supportTs: false,
     }),
   ],

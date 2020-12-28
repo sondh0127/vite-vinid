@@ -1,5 +1,5 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
+  <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Hello Vue 3.0 + Vite" /> -->
   <div>
     <!-- <img
@@ -31,6 +31,7 @@
       v-tw
       class="custom-swipe py-6"
       :width="350"
+      :show-indicators="false"
     >
       <div v-tw class="mx-2"></div>
       <van-swipe-item v-tw class="flex-shrink!">
@@ -41,7 +42,6 @@
         <wallet-card />
       </van-swipe-item>
       <div v-tw class="mx-2"></div>
-      <template #indicator></template>
     </van-swipe>
 
     <van-grid
@@ -72,6 +72,8 @@
       <banner-swipe />
     </div>
 
+    <div v-tw class="my-10">...</div>
+
     <van-tabbar v-model="activeTab" @change="onChange">
       <van-tabbar-item name="home" icon="home-o">Trang chủ</van-tabbar-item>
       <van-tabbar-item name="search" icon="search">Ví của tôi</van-tabbar-item>
@@ -94,7 +96,7 @@ import { defineComponent, ref, computed } from "vue";
 import { Toast } from "vant";
 import AccountCard from "@components/AccountCard.vue";
 import WalletCard from "@components/WalletCard.vue";
-import BannerSwipe from "./components/BannerSwipe.vue";
+import BannerSwipe from "@components/BannerSwipe.vue";
 
 const FEATURES = [
   { id: "market", label: "Đi chợ", icon: "photo-o" },

@@ -30,12 +30,12 @@ module.exports = {
     },
   },
   plugins: [
-    createMockServer({
-      ignore: /^_/,
-      mockPath: "mock",
-      watchFiles: true,
-      localEnabled: process.env.NODE_ENV === "development",
-      supportTs: false,
-    }),
+    // createMockServer({
+    //   ignore: /^_/,
+    //   mockPath: "mock",
+    //   watchFiles: true,
+    //   localEnabled: process.env.NODE_ENV === "development",
+    //   supportTs: false,
+    // }),
   ],
 };

@@ -1,7 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <!-- <HelloWorld msg="Hello Vue 3.0 + Vite" /> -->
-  <div>
+  <default>
     <!-- <img
       class="user-poster"
       src="https://img.yzcdn.cn/public_files/2017/10/23/8690bb321356070e0b8c4404d087f8fd.png"
@@ -49,9 +47,8 @@
       :column-num="4"
       :clickable="true"
       :center="false"
-      :gutter="4"
       v-tw
-      class="mx-2"
+      class="px-4"
     >
       <van-grid-item
         v-for="feature in FEATURES"
@@ -72,23 +69,34 @@
       <banner-swipe />
     </div>
 
-    <div v-tw class="my-10">...</div>
+    <div v-tw class="mt-3 mb-2 px-4">
+      <h1 v-tw class="font-semibold text-base">Đừng bỏ lỡ</h1>
+    </div>
 
-    <van-tabbar v-model="activeTab" @change="onChange">
-      <van-tabbar-item name="home" icon="home-o">Trang chủ</van-tabbar-item>
-      <van-tabbar-item name="search" icon="search">Ví của tôi</van-tabbar-item>
-      <van-tabbar-item name="friends">
-        <template #icon="props">
-          <!-- <img :src="props.active ? icon.active : icon.inactive" /> -->
-          <van-icon size="36" name="qr" color="#ee0a24" />
-        </template>
-      </van-tabbar-item>
-      <van-tabbar-item name="friends" icon="friends-o">Hộp thư</van-tabbar-item>
-      <van-tabbar-item name="setting" icon="setting-o"
-        >Tài khoản</van-tabbar-item
+    <van-grid
+      :border="false"
+      :column-num="2"
+      :clickable="true"
+      :center="false"
+      :gutter="4"
+      v-tw
+      class="mx-2 rounded-md"
+    >
+      <van-grid-item
+        v-for="feature in FEATURES"
+        :key="feature.id"
+        v-tw
+        class="text-center"
       >
-    </van-tabbar>
-  </div>
+        <template #icon>
+          <van-icon :size="30" :name="feature.icon" />
+        </template>
+        <template #text>
+          <span v-tw class="text-xs font-medium">{{ feature.label }}</span>
+        </template>
+      </van-grid-item>
+    </van-grid>
+  </default>
 </template>
 
 <script>
@@ -97,6 +105,7 @@ import { Toast } from "vant";
 import AccountCard from "@components/AccountCard.vue";
 import WalletCard from "@components/WalletCard.vue";
 import BannerSwipe from "@components/BannerSwipe.vue";
+import Default from "./layouts/default.vue";
 
 const FEATURES = [
   { id: "market", label: "Đi chợ", icon: "photo-o" },
@@ -118,6 +127,7 @@ export default defineComponent({
     AccountCard,
     WalletCard,
     BannerSwipe,
+    Default,
   },
   name: "App",
   setup() {

@@ -16,6 +16,6 @@
       "@views/": ["/src/views/*"],
     }
   },
-  "include": ["src/**/*.{vue,ts}"],
+  "include": ["/src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

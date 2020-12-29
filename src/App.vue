@@ -70,32 +70,10 @@
     </div>
 
     <div v-tw class="mt-3 mb-2 px-4">
-      <h1 v-tw class="font-semibold text-base">Đừng bỏ lỡ</h1>
+      <h1 v-tw class="font-semibold text-lg">Đừng bỏ lỡ !</h1>
     </div>
 
-    <van-grid
-      :border="false"
-      :column-num="2"
-      :clickable="true"
-      :center="false"
-      :gutter="4"
-      v-tw
-      class="mx-2 rounded-md"
-    >
-      <van-grid-item
-        v-for="feature in FEATURES"
-        :key="feature.id"
-        v-tw
-        class="text-center"
-      >
-        <template #icon>
-          <van-icon :size="30" :name="feature.icon" />
-        </template>
-        <template #text>
-          <span v-tw class="text-xs font-medium">{{ feature.label }}</span>
-        </template>
-      </van-grid-item>
-    </van-grid>
+    <feed />
   </default>
 </template>
 
@@ -106,6 +84,7 @@ import AccountCard from "@components/AccountCard.vue";
 import WalletCard from "@components/WalletCard.vue";
 import BannerSwipe from "@components/BannerSwipe.vue";
 import Default from "./layouts/default.vue";
+import Feed from "./components/Feed.vue";
 
 const FEATURES = [
   { id: "market", label: "Đi chợ", icon: "photo-o" },
@@ -128,6 +107,7 @@ export default defineComponent({
     WalletCard,
     BannerSwipe,
     Default,
+    Feed,
   },
   name: "App",
   setup() {
@@ -147,9 +127,20 @@ export default defineComponent({
 <style lang="less">
 body {
   font-size: 16px;
-  background-color: #f8f8f8;
+  background-color: #f5f5f5;
   -webkit-font-smoothing: antialiased;
 }
-.custom-swipe {
+.custom-grid-item {
+  .van-grid-item__content {
+    background: unset;
+    padding: 6px 6px;
+  }
+}
+
+.custom-image {
+  .van-image__img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
 }
 </style>
